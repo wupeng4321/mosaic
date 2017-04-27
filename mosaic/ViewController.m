@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIImage+mosaic.h"
 
 @interface ViewController ()
 
@@ -16,8 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    [self.view addSubview:imageView];
+    imageView.image = [UIImage imageNamed:@"kebi.jpg"];
+    imageView.image = [UIImage transTomosaicImage:imageView.image blockLevel:4];
 }
+
 
 
 - (void)didReceiveMemoryWarning {
